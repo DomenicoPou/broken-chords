@@ -28,17 +28,46 @@ public class mainscript : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    // FixedUpdate is called everye 20ms or so
+    //the time can be changed in settings somewhere
     void FixedUpdate()
     {
         //Process this puppy
 
-        //1080 by 1920
+        //maxh=1080 by maxw=1920
         //Color[] color;
         //Debug.Log(input.GetPixel(100, 100));
-
-        data = new Color[1 * 1];
-        data = input.GetPixels(100, 100, 1, 1);
-        Debug.Log("the first color is: " + data[0].ToString());
+        int blockw = 640 / 32;
+        int blockh = 480 / 32;
+        data = new Color[blockw * blockh];
+        int j = 0;
+        int k = 0;
+        Color avgBlockColor;
+        do
+        {
+            
+            //data = input.GetPixels(j*blockw, k*blockh, blockw, blockh);
+            //Debug.Log("the "+j+k+"th color is: " + data[0].ToString());
+            Debug.Log("first row");
+            k = 0;
+            do
+            {
+                Debug.Log(k+"th column");
+                Debug.Log(j + k +"th section");
+                data = new Color[blockw * blockh];
+                data = input.GetPixels(k * blockw, j * blockh, blockw, blockh);
+                //this is the average color fro the block specified
+                avgBlockColor = averageColors(data);
+                k++;
+            } while (k*blockw < 640);
+            j++;
+        } while (j*blockh < 480);
     }
+
+    Color averageColors (Color[] colorblock)
+    {
+        //Should average all the colors here and then return the average as a color
+        return colorblock[0];
+    }
+
 }

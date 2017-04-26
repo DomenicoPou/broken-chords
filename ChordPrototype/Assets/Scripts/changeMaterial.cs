@@ -6,6 +6,7 @@ public class changeMaterial : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Debug.Log("change material!!!!");
         WebCamDevice[] devices = WebCamTexture.devices;
 
         // for debugging purposes, prints available devices to the console
