@@ -42,7 +42,8 @@ public class mainscript : MonoBehaviour
         data = new Color[blockw * blockh];
         int j = 0;
         int k = 0;
-        Color avgBlockColor;
+        List<int> avgColors = new List<int>();
+        string midiout = "";
         do
         {
             
@@ -57,17 +58,47 @@ public class mainscript : MonoBehaviour
                 data = new Color[blockw * blockh];
                 data = input.GetPixels(k * blockw, j * blockh, blockw, blockh);
                 //this is the average color fro the block specified
-                avgBlockColor = averageColors(data);
+                avgColors.Add(averageColors(data));
                 k++;
             } while (k*blockw < 640);
             j++;
         } while (j*blockh < 480);
+        for (int i = 0; i < avgColors.Count; i++) {
+            midiout = midiout + avgColors[i];
+        }
+        Debug.Log(midiout);
     }
 
-    Color averageColors (Color[] colorblock)
+    //if white return 1 if black return 0   
+    public int averageColors (Color[] colorblock)
     {
         //Should average all the colors here and then return the average as a color
-        return colorblock[0];
+        /**
+        Random rnd = new Random();
+        int output = rnd.Next(0, 3);
+        if (output == 1)
+        {
+            return 1;
+        }
+        return 0;
+        */
+        //write the maths
+        //average all the r's, then the g's, then the b's, and thats the average color
+        float sumR = 0;
+        float sumG = 0;
+        float sumB = 0;
+
+        for (int i = 0; i < colorblock.Length; i++){
+            sumR += colorblock[i].r;
+            sumG += colorblock[i].g;
+            sumB += colorblock[i].b;
+        }
+
+        if ((sumR / colorblock.Length) + (sumG / colorblock.Length) + (sumB / colorblock.Length) >= 1.5)
+        {
+            return 1;
+        }
+        return 0;
     }
 
 }
