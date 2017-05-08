@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Webcamread.cs" />
+    <Compile Include="Assets\Scripts\backupprototype.cs" />
     <Compile Include="Assets\Scripts\changeMaterial.cs" />
     <Compile Include="Assets\Scripts\mainscript.cs" />
   </ItemGroup>

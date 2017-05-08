@@ -1,0 +1,14 @@
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\bin\Debug\Sanford.Multimedia.Midi.dll
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\bin\Debug\Sanford.Multimedia.Midi.pdb
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\bin\Debug\Sanford.Collections.dll
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\bin\Debug\Sanford.Multimedia.dll
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\bin\Debug\Sanford.Multimedia.Timers.dll
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\bin\Debug\Sanford.Threading.dll
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.csprojResolveAssemblyReference.cache
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.UI.DeviceDialog.resources
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.UI.InputDeviceDialog.resources
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.UI.OutputDeviceDialog.resources
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.UI.PianoControlDialog.resources
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.csproj.GenerateResource.Cache
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.dll
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\Sanford.Multimedia.Midi\obj\Debug\Sanford.Multimedia.Midi.pdb

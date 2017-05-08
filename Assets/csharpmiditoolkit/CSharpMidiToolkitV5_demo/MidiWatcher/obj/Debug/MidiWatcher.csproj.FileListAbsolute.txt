@@ -1,0 +1,14 @@
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\bin\Debug\MidiWatcher.exe
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\bin\Debug\MidiWatcher.pdb
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\bin\Debug\Sanford.Collections.dll
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\bin\Debug\Sanford.Multimedia.dll
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\bin\Debug\Sanford.Multimedia.Midi.dll
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\bin\Debug\Sanford.Threading.dll
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\bin\Debug\Sanford.Multimedia.Timers.dll
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\bin\Debug\Sanford.Multimedia.Midi.pdb
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\obj\Debug\MidiWatcher.csprojResolveAssemblyReference.cache
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\obj\Debug\MidiWatcher.Form1.resources
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\obj\Debug\MidiWatcher.Properties.Resources.resources
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\obj\Debug\MidiWatcher.csproj.GenerateResource.Cache
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\obj\Debug\MidiWatcher.exe
+C:\WebcamSnaps\csharpmiditoolkit\CSharpMidiToolkitV5_demo\MidiWatcher\obj\Debug\MidiWatcher.pdb

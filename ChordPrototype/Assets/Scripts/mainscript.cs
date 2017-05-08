@@ -7,6 +7,8 @@ public class mainscript : MonoBehaviour
 
     public WebCamTexture input;
     public Color[] data;
+    public int blockw = 640 / 32;
+    public int blockh = 480 / 32;
 
     // Use this for initialization
     void Start()
@@ -37,8 +39,7 @@ public class mainscript : MonoBehaviour
         //maxh=1080 by maxw=1920
         //Color[] color;
         //Debug.Log(input.GetPixel(100, 100));
-        int blockw = 640 / 32;
-        int blockh = 480 / 32;
+        
         data = new Color[blockw * blockh];
         int j = 0;
         int k = 0;
@@ -67,6 +68,7 @@ public class mainscript : MonoBehaviour
             midiout = midiout + avgColors[i];
         }
         Debug.Log(midiout);
+		createMidi(midiout);
     }
 
     //if white return 1 if black return 0   
@@ -99,6 +101,31 @@ public class mainscript : MonoBehaviour
             return 1;
         }
         return 0;
+    }
+
+    /**  
+     * M
+     * 
+     */
+
+	//send midi notes at 
+	public void createMidi(string data) {
+        //if its a 1, throw the note at ableton
+        int[,] noteArray = new int[blockw, blockh];
+        //List<int[]> noteArray = new List<int[]>();
+        for (int j = 0; j < blockw; j++)
+        {
+            for(int i = 0; i < blockh; i++)
+            {
+                noteArray[j, i] = data[i+j];
+            }
+        }
+
+        //noteArray[0-blockw, 0] is the first note
+        //noteArray[0-blockw, 1] is the second note
+        //etc up to noteArray[0-blockw, blockh]
+
+
     }
 
 }
