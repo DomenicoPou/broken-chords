@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Midi;
 
 public class mainscript : MonoBehaviour
 {
@@ -124,7 +125,6 @@ public class mainscript : MonoBehaviour
         //noteArray[0-blockw, 0] is the first note
         //noteArray[0-blockw, 1] is the second note
         //etc up to noteArray[0-blockw, blockh]
-
 
     }
 

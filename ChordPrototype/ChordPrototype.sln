@@ -1,7 +1,9 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChordPrototype", "ChordPrototype.csproj", "{FA6B7CAE-C4EE-1E18-E91D-1C8BE384BB2B}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{61CC0419-EF85-4F6D-C0D5-C33E0762E140}") = "ChordPrototype", "Assembly-CSharp.csproj", "{B8103B37-BD07-949A-07F1-641449962DAE}"
+EndProject
+Project("{61CC0419-EF85-4F6D-C0D5-C33E0762E140}") = "ChordPrototype", "Assembly-UnityScript.unityproj", "{3D4A0B25-44B0-A59E-3C42-BF13F074343B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +11,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FA6B7CAE-C4EE-1E18-E91D-1C8BE384BB2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA6B7CAE-C4EE-1E18-E91D-1C8BE384BB2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA6B7CAE-C4EE-1E18-E91D-1C8BE384BB2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA6B7CAE-C4EE-1E18-E91D-1C8BE384BB2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8103B37-BD07-949A-07F1-641449962DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8103B37-BD07-949A-07F1-641449962DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8103B37-BD07-949A-07F1-641449962DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8103B37-BD07-949A-07F1-641449962DAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D4A0B25-44B0-A59E-3C42-BF13F074343B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4A0B25-44B0-A59E-3C42-BF13F074343B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4A0B25-44B0-A59E-3C42-BF13F074343B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4A0B25-44B0-A59E-3C42-BF13F074343B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
