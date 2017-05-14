@@ -47,3 +47,29 @@ C:\Users\ixd\Desktop\Im broken, like a chord\New folder\ThisIsBroken\ThisIsBroke
 C:\Users\ixd\Desktop\Im broken, like a chord\New folder\ThisIsBroken\ThisIsBroken\obj\Debug\ThisIsBroken.pdb
 C:\Users\ixd\Desktop\Im broken, like a chord\New folder\ThisIsBroken\ThisIsBroken\bin\Debug\Bass.Net.dll
 C:\Users\ixd\Desktop\Im broken, like a chord\New folder\ThisIsBroken\ThisIsBroken\bin\Debug\Bass.Net.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\ThisIsBroken.exe.config
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\ThisIsBroken.exe
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\ThisIsBroken.pdb
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Controls.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Fuzzy.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Genetic.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Imaging.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Imaging.Formats.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.MachineLearning.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Math.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Neuro.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Robotics.Lego.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Robotics.Surveyor.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Robotics.TeRK.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Video.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Video.FFMPEG.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Video.Kinect.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Video.VFW.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Video.Ximea.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\AForge.Vision.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\bin\Debug\Bass.Net.xml
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\obj\Debug\ThisIsBroken.csprojResolveAssemblyReference.cache
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\obj\Debug\ThisIsBroken.exe
+C:\Users\Domenico\Documents\broken-chordsfinal\ThisIsBroken\ThisIsBroken\obj\Debug\ThisIsBroken.pdb

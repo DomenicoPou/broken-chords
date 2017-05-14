@@ -10,7 +10,7 @@ namespace ThisIsBroken
 {
     class CallebrateImage
     {
-
+        
         // Main is whats called
         static void Main(string[] args)
         {
@@ -65,14 +65,13 @@ namespace ThisIsBroken
                         and the height of the drawing is usually 0 - 479. we can ratio it down to devide
                         the height by 3.772 rounding it up by 1 to get the value of the pitch.
                         */
-
-                        //FIGURE OUT HOW TO MANUALLY RETURN PITCH.VALUES *****
-                        Pitch caleratedPitch;
+                        int value = (int)Math.Ceiling(i / 3.772);
 
                         // DOING 1 channel atm for testing until going to other channels.
                         // Note that all channels can handle more than one note.
                         // Velocity will stay at 80 for health purposes
-                        outputDevice.SendNoteOn(Channel.Channel1, Pitch.A0, 80);
+                        // Using return pitch we are able to return a the corresponding values Pitch value.
+                        outputDevice.SendNoteOn(Channel.Channel1, captureInstance.returnPitch(value), 80);
                         outputDevice.SendNoteOn(Channel.Channel1, Pitch.A4, 80);
                         System.Threading.Thread.Sleep(100);
                     }
