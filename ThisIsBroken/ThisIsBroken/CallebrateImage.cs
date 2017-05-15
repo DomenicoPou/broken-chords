@@ -34,6 +34,10 @@ namespace ThisIsBroken
             OutputDevice outputDeviceBass = OutputDevice.InstalledDevices[3];
             outputDeviceBass.Open();
 
+            // Obtain said input devices and open them for bass
+            OutputDevice outputDeviceDrum = OutputDevice.InstalledDevices[4];
+            outputDeviceDrum.Open();
+
             // Run indefenity until stopped manually by pressing the visual studios square button
             while (true)
             {
@@ -42,7 +46,7 @@ namespace ThisIsBroken
 
                 // Checks the rbg value of the bottom left pixle captured
                 Console.WriteLine("BOTTOM LEFT RBG VALUE");
-                Console.WriteLine(captureInstance.returnBitmap().GetPixel(0, 0));
+                Console.WriteLine(captureInstance.returnBitmap().GetPixel(0,0));
                 Console.WriteLine("");
 
                 //Initialize height and width of the captured image.
@@ -53,13 +57,11 @@ namespace ThisIsBroken
                 Console.WriteLine("Width : " + Width);      // Usually 640 if not its broken
                 Console.WriteLine("");
 
-                // Initialize a 2d array to store all the rbg strings ******** FIGURE OUT ACTUAL INT VALUES
-                int[,,] array = new int[Height, Width, 3];
-
                 // These two for loops will go from TOP -> DOWN then LEFT -> RIGHT
                 bool red = false;
                 bool blue = false;
                 bool green = false;
+                bool black = false;
                 for (int i = 0; i < Width; i++)
                 {
                     if (i % 4 == 0)
@@ -69,19 +71,15 @@ namespace ThisIsBroken
                             // USING Color we can obtain the bitmaps pixle R,B,G values
                             Color pixlecolor = captureInstance.returnBitmap().GetPixel(i, j);
 
-                            // Put the rbg values  to their respected spots
-                            array[j, i, 0] = pixlecolor.R; // RED
-                            array[j, i, 1] = pixlecolor.B; // BLUE
-                            array[j, i, 2] = pixlecolor.G; // GREEN
-                                                           //Pitch pitch = 2;
-                                                           /* CALCS
-                                                           Ok some calculations are in order, Due to the fact the pitch ranges to 0 - 127
-                                                           and the height of the drawing is usually 0 - 479. we can ratio it down to devide
-                                                           the height by 3.772 rounding it up by 1 to get the value of the pitch.
-                                                           */
-                            int value = (int)Math.Ceiling(j / 3.802);
+                            
+                            /* CALCS
+                            Ok some calculations are in order, Due to the fact the pitch ranges to 0 - 127
+                            and the height of the drawing is usually 0 - 479. we can ratio it down to devide
+                            the height by 3.772 rounding it up by 1 to get the value of the pitch.
+                            */
+                            int value = (int)Math.Ceiling(j / 26.55) + 50;
 
-                            if (array[j, i, 0] > 80 && array[j, i, 1] < 80 && array[j, i, 2] < 80)
+                            if (pixlecolor.R - pixlecolor.G > 20 && pixlecolor.R - pixlecolor.B > 20)
                             {
                                 if (red == false)
                                 {
@@ -97,7 +95,7 @@ namespace ThisIsBroken
                             }
 
                             //Now calibrate if its blue
-                            if (array[j, i, 0] < 80 && array[j, i, 1] > 80 && array[j, i, 2] < 80)
+                            if (pixlecolor.B - pixlecolor.R > 20 && pixlecolor.B - pixlecolor.G > 20)
                             {
                                 if (blue == false)
                                 {
@@ -113,7 +111,7 @@ namespace ThisIsBroken
                             }
 
                             //Now calibrate if its Green
-                            if (array[j, i, 0] < 80 && array[j, i, 1] < 80 && array[j, i, 2] > 80)
+                            if (pixlecolor.G - pixlecolor.R > 5 && pixlecolor.G - pixlecolor.B > 5)
                             {
                                 if (green == false)
                                 {
@@ -126,6 +124,22 @@ namespace ThisIsBroken
                             {
                                 green = false;
                                 outputDeviceBass.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                            }
+
+                            //Now calibrate if its Black
+                            if (pixlecolor.R < 100 && pixlecolor.G < 100 && pixlecolor.B < 100)
+                            {
+                                if (black == false)
+                                {
+                                    //Console.WriteLine("OMG TS RED = " + j.ToString());
+                                    outputDeviceDrum.SendNoteOn(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                                    black = true;
+                                }
+                            }
+                            else
+                            {
+                                black = false;
+                                outputDeviceDrum.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value), 80);
                             }
 
                             //Console.WriteLine(value);
