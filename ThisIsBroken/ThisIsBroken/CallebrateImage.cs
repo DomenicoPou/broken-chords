@@ -62,11 +62,11 @@ namespace ThisIsBroken
                 bool blue = false;
                 bool green = false;
                 bool black = false;
-                for (int i = 0; i < Width; i++)
+                for (int i = Width - 1; i >= 0; i--)
                 {
                     if (i % 4 == 0)
                     {
-                        for (int j = Height - 1; j >= 0; j--)
+                        for (int j = 0; j < Height; j++)
                         {
                             // USING Color we can obtain the bitmaps pixle R,B,G values
                             Color pixlecolor = captureInstance.returnBitmap().GetPixel(i, j);
@@ -77,21 +77,20 @@ namespace ThisIsBroken
                             and the height of the drawing is usually 0 - 479. we can ratio it down to devide
                             the height by 3.772 rounding it up by 1 to get the value of the pitch.
                             */
-                            int value = (int)Math.Ceiling(j / 26.55) + 50;
-
+                            int value = (int)Math.Ceiling((479 - j)  / 23.95);
                             if (pixlecolor.R - pixlecolor.G > 20 && pixlecolor.R - pixlecolor.B > 20)
                             {
                                 if (red == false)
                                 {
                                     //Console.WriteLine("OMG TS RED = " + j.ToString());
-                                    outputDeviceGuitar.SendNoteOn(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                                    outputDeviceGuitar.SendNoteOn(Channel.Channel1, captureInstance.returnPitch(value+10), 80);
                                     red = true;
                                 }
                             }
                             else
                             {
                                 red = false;
-                                outputDeviceGuitar.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                                outputDeviceGuitar.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value+10), 80);
                             }
 
                             //Now calibrate if its blue
@@ -100,14 +99,14 @@ namespace ThisIsBroken
                                 if (blue == false)
                                 {
                                     //Console.WriteLine("OMG TS RED = " + j.ToString());
-                                    outputDevicePiano.SendNoteOn(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                                    outputDevicePiano.SendNoteOn(Channel.Channel1, captureInstance.returnPitch(value+10), 80);
                                     blue = true;
                                 }
                             }
                             else
                             {
                                 blue = false;
-                                outputDevicePiano.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                                outputDevicePiano.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value+10), 80);
                             }
 
                             //Now calibrate if its Green
@@ -116,14 +115,14 @@ namespace ThisIsBroken
                                 if (green == false)
                                 {
                                     //Console.WriteLine("OMG TS RED = " + j.ToString());
-                                    outputDeviceBass.SendNoteOn(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                                    outputDeviceBass.SendNoteOn(Channel.Channel1, captureInstance.returnPitch(value+10), 80);
                                     green = true;
                                 }
                             }
                             else
                             {
                                 green = false;
-                                outputDeviceBass.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                                outputDeviceBass.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value+10), 80);
                             }
 
                             //Now calibrate if its Black
