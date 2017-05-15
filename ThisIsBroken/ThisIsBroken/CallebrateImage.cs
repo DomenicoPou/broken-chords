@@ -21,9 +21,18 @@ namespace ThisIsBroken
                 Console.WriteLine("  {0}", device.Name);
             }
             Console.WriteLine("");
-            // Obtain said input devices and open them
-            OutputDevice outputDevice = OutputDevice.InstalledDevices[0];
-            outputDevice.Open();
+
+            // Obtain said input devices and open them for guitar
+            OutputDevice outputDeviceGuitar = OutputDevice.InstalledDevices[1];
+            outputDeviceGuitar.Open();
+
+            // Obtain said input devices and open them for piano
+            OutputDevice outputDevicePiano = OutputDevice.InstalledDevices[2];
+            outputDevicePiano.Open();
+
+            // Obtain said input devices and open them for bass
+            OutputDevice outputDeviceBass = OutputDevice.InstalledDevices[3];
+            outputDeviceBass.Open();
 
             // Run indefenity until stopped manually by pressing the visual studios square button
             while (true)
@@ -48,35 +57,92 @@ namespace ThisIsBroken
                 int[,,] array = new int[Height, Width, 3];
 
                 // These two for loops will go from TOP -> DOWN then LEFT -> RIGHT
+                bool red = false;
+                bool blue = false;
+                bool green = false;
                 for (int i = 0; i < Width; i++)
                 {
-                    for (int j = Height - 1; j >= 0; j--)
+                    if (i % 4 == 0)
                     {
-                        // USING Color we can obtain the bitmaps pixle R,B,G values
-                        Color pixlecolor = captureInstance.returnBitmap().GetPixel(i, j);
-                        
-                        // Put the rbg values  to their respected spots
-                        array[j, i, 0] = pixlecolor.R; // RED
-                        array[j, i, 1] = pixlecolor.B; // BLUE
-                        array[j, i, 2] = pixlecolor.G; // GREEN
-                        //Pitch pitch = 2;
-                        /* CALCS
-                        Ok some calculations are in order, Due to the fact the pitch ranges to 0 - 127
-                        and the height of the drawing is usually 0 - 479. we can ratio it down to devide
-                        the height by 3.772 rounding it up by 1 to get the value of the pitch.
-                        */
-                        int value = (int)Math.Ceiling(i / 3.772);
+                        for (int j = Height - 1; j >= 0; j--)
+                        {
+                            // USING Color we can obtain the bitmaps pixle R,B,G values
+                            Color pixlecolor = captureInstance.returnBitmap().GetPixel(i, j);
 
-                        // DOING 1 channel atm for testing until going to other channels.
-                        // Note that all channels can handle more than one note.
-                        // Velocity will stay at 80 for health purposes
-                        // Using return pitch we are able to return a the corresponding values Pitch value.
-                        outputDevice.SendNoteOn(Channel.Channel1, captureInstance.returnPitch(value), 80);
-                        outputDevice.SendNoteOn(Channel.Channel1, Pitch.A4, 80);
-                        System.Threading.Thread.Sleep(100);
+                            // Put the rbg values  to their respected spots
+                            array[j, i, 0] = pixlecolor.R; // RED
+                            array[j, i, 1] = pixlecolor.B; // BLUE
+                            array[j, i, 2] = pixlecolor.G; // GREEN
+                                                           //Pitch pitch = 2;
+                                                           /* CALCS
+                                                           Ok some calculations are in order, Due to the fact the pitch ranges to 0 - 127
+                                                           and the height of the drawing is usually 0 - 479. we can ratio it down to devide
+                                                           the height by 3.772 rounding it up by 1 to get the value of the pitch.
+                                                           */
+                            int value = (int)Math.Ceiling(j / 3.802);
+
+                            if (array[j, i, 0] > 80 && array[j, i, 1] < 80 && array[j, i, 2] < 80)
+                            {
+                                if (red == false)
+                                {
+                                    //Console.WriteLine("OMG TS RED = " + j.ToString());
+                                    outputDeviceGuitar.SendNoteOn(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                                    red = true;
+                                }
+                            }
+                            else
+                            {
+                                red = false;
+                                outputDeviceGuitar.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                            }
+
+                            //Now calibrate if its blue
+                            if (array[j, i, 0] < 80 && array[j, i, 1] > 80 && array[j, i, 2] < 80)
+                            {
+                                if (blue == false)
+                                {
+                                    //Console.WriteLine("OMG TS RED = " + j.ToString());
+                                    outputDevicePiano.SendNoteOn(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                                    blue = true;
+                                }
+                            }
+                            else
+                            {
+                                blue = false;
+                                outputDevicePiano.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                            }
+
+                            //Now calibrate if its Green
+                            if (array[j, i, 0] < 80 && array[j, i, 1] < 80 && array[j, i, 2] > 80)
+                            {
+                                if (green == false)
+                                {
+                                    //Console.WriteLine("OMG TS RED = " + j.ToString());
+                                    outputDeviceBass.SendNoteOn(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                                    green = true;
+                                }
+                            }
+                            else
+                            {
+                                green = false;
+                                outputDeviceBass.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value), 80);
+                            }
+
+                            //Console.WriteLine(value);
+                            //Console.WriteLine(captureInstance.returnPitch(value));
+                            // DOING 1 channel atm for testing until going to other channels.
+                            // Note that all channels can handle more than one note.
+                            // Velocity will stay at 80 for health purposes
+                            // Using return pitch we are able to return a the corresponding values Pitch value.
+                            //Console.WriteLine(value.ToString());
+                            //outputDevice.SendNoteOn(Channel.Channel2, captureInstance.returnPitch(value), 80);
+                            //outputDevice.SendNoteOn(Channel.Channel2, Pitch.A5, 80);
+
+                        }
                     }
+                    System.Threading.Thread.Sleep(40);
                 }
-
+                
                 // This is testing to make sure that the array is created
                 /*for (int i = 0; i < Width; i++)
                 {
