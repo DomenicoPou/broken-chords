@@ -17,7 +17,7 @@ using Midi;
 
 // I could simplify most of the includes, But hey, Wat ya gonna do
 
-namespace ThisIsBroken
+namespace TheFinalBrokenChords
 {
 
     public class CameraImaging
@@ -27,6 +27,7 @@ namespace ThisIsBroken
         public FilterInfoCollection VideoCapturingDevices;  // All the video capturing devices
         public VideoCaptureDevice FileVideoSource;          // The device we will be using
 
+        // This is a very anoying hard coded Pitch array of pitches
         public Pitch[] pitches = { /*Pitch.CNeg1,
             Pitch.CSharpNeg1,
             Pitch.DNeg1,
@@ -199,10 +200,10 @@ namespace ThisIsBroken
             //Wait until the frame has been captured
             // THen stop the Camera
         }
-        /**
-        Return the Bitmap Variable
-        */
 
+        /**
+        Return the current Bitmap Variable
+        */
         public Bitmap returnCurrentBitmap()
         {
             return bitmap;
@@ -215,12 +216,18 @@ namespace ThisIsBroken
         {
             // copy the new frame onto the bitmap
             bitmap = new Bitmap(eventArgs.Frame);
+
+            // CODE IF NEEDED FOR OVERLOADED BITMAPS
+            //Bitmap tempBitmap = (Bitmap)eventArgs.Frame.Clone();
+            //bitmap = tempBitmap;
+            //tempBitmap.Dispose();
         }
 
         //This is what we use to return a pitch value with our height value
         public Pitch returnPitch(int val)
         {
-
+            // No seriously why didn't the people who made the source code
+            // make one of these
             return pitches[val];
         }
     }

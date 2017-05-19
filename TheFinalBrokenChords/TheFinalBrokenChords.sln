@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheFinalBrokenChords", "TheFinalBrokenChords\TheFinalBrokenChords.csproj", "{B1CB7444-788A-4897-B89D-B529AE61F022}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Midi", "Midi", "{C59BFDB9-7652-463A-BC0F-3B1ACB0BDA59}"
+	ProjectSection(SolutionItems) = preProject
+		..\TestMidi\TestMidi\Channel.cs = ..\TestMidi\TestMidi\Channel.cs
+		..\TestMidi\TestMidi\Chord.cs = ..\TestMidi\TestMidi\Chord.cs
+		..\TestMidi\TestMidi\Control.cs = ..\TestMidi\TestMidi\Control.cs
+		..\TestMidi\TestMidi\DeviceBase.cs = ..\TestMidi\TestMidi\DeviceBase.cs
+		..\TestMidi\TestMidi\Example01.cs = ..\TestMidi\TestMidi\Example01.cs
+		..\TestMidi\TestMidi\ExampleBase.cs = ..\TestMidi\TestMidi\ExampleBase.cs
+		..\TestMidi\TestMidi\ExampleUtil.cs = ..\TestMidi\TestMidi\ExampleUtil.cs
+		..\TestMidi\TestMidi\Instrument.cs = ..\TestMidi\TestMidi\Instrument.cs
+		..\TestMidi\TestMidi\Interval.cs = ..\TestMidi\TestMidi\Interval.cs
+		..\TestMidi\TestMidi\LongMsg.cs = ..\TestMidi\TestMidi\LongMsg.cs
+		..\TestMidi\TestMidi\Messages.cs = ..\TestMidi\TestMidi\Messages.cs
+		..\TestMidi\TestMidi\Note.cs = ..\TestMidi\TestMidi\Note.cs
+		..\TestMidi\TestMidi\OutputDevice.cs = ..\TestMidi\TestMidi\OutputDevice.cs
+		..\TestMidi\TestMidi\Percussion.cs = ..\TestMidi\TestMidi\Percussion.cs
+		..\TestMidi\TestMidi\Pitch.cs = ..\TestMidi\TestMidi\Pitch.cs
+		..\TestMidi\TestMidi\Program.cs = ..\TestMidi\TestMidi\Program.cs
+		..\TestMidi\TestMidi\Scale.cs = ..\TestMidi\TestMidi\Scale.cs
+		..\TestMidi\TestMidi\ShortMsg.cs = ..\TestMidi\TestMidi\ShortMsg.cs
+		..\TestMidi\TestMidi\TestMidi.csproj = ..\TestMidi\TestMidi\TestMidi.csproj
+		..\TestMidi\TestMidi\Win32API.cs = ..\TestMidi\TestMidi\Win32API.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1CB7444-788A-4897-B89D-B529AE61F022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1CB7444-788A-4897-B89D-B529AE61F022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1CB7444-788A-4897-B89D-B529AE61F022}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B1CB7444-788A-4897-B89D-B529AE61F022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1CB7444-788A-4897-B89D-B529AE61F022}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
