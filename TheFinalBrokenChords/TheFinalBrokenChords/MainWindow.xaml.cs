@@ -27,12 +27,7 @@ namespace TheFinalBrokenChords
     {
         public MainWindow()
         {
-
-            // Initialize thread for form debugging
-            Thread threadForUI = new Thread(UIThread);
-            threadForUI.SetApartmentState(ApartmentState.STA);
-            threadForUI.Start();
-
+            InitializeComponent();
             // Print out the midi loop channels
             Console.WriteLine("MIDI LOOP CHANNELS");
             foreach (OutputDevice device in OutputDevice.InstalledDevices)
@@ -64,17 +59,24 @@ namespace TheFinalBrokenChords
             // Start up the Camera Imaging funcions and wait for the bitmap to be null
             // this indicates when the camera is sending data        
             CameraImaging captureInstance = new CameraImaging();
-            while (captureInstance.returnCurrentBitmap() == null) ;
+            while (captureInstance.returnCurrentBitmapOne() == null) ;
 
+            // Initialize thread for form debugging
+            Thread threadForUI = new Thread(UIThread);
+            threadForUI.SetApartmentState(ApartmentState.STA);
+            threadForUI.Start(captureInstance);
 
-            Bitmap usingBitmap;
+            Bitmap usingBitmap = null;
 
             // Run indefenity until stopped manually by pressing the visual studios square button
             // The Form is its seperate thread. So this code will still run if the thread closes
             while (true)
             {
                 // Capture a bitmap for initial debugging ****** REPLACING THIS INTO THE DEBUGGING WINDOOW
-                usingBitmap = captureInstance.returnCurrentBitmap();
+                while (usingBitmap == null)
+                {
+                    usingBitmap = captureInstance.returnCurrentBitmapOne();
+                }
 
                 // Checks the rbg value of the bottom left pixle captured
                 Console.WriteLine("BOTTOM LEFT RBG VALUE");
@@ -108,9 +110,9 @@ namespace TheFinalBrokenChords
                     amount.Add(0);
 
                     // Every 10 pixles re-upload the current bitmap
-                    if (i % 10 == 0)
+                    if (i % 4 == 0)
                     {
-                        usingBitmap = captureInstance.returnCurrentBitmap();
+                        usingBitmap = captureInstance.returnCurrentBitmapTwo();
                     }
 
                     // Every four pixled will be checked for colour within their height
@@ -129,7 +131,7 @@ namespace TheFinalBrokenChords
                             */
                             int value = (int)Math.Ceiling((479 - j) / 23.95);
                             // Now check if the colour at this pixle is red
-                            if (pixelcolour.R - pixelcolour.G > 80 && pixelcolour.R - pixelcolour.B > 80)
+                            if (pixelcolour.R - pixelcolour.G > 40 && pixelcolour.R - pixelcolour.B > 40 && pixelcolour.G + pixelcolour.B < 20)
                             {
                                 // To check if its one stroke
                                 if (red == false)
@@ -214,7 +216,7 @@ namespace TheFinalBrokenChords
                                 outputDeviceDrum.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value), 80);
                             }*/
                         }
-                        
+
                         int redValue = (int)(amount[0] * (255 / (amount.Max() + 1)));
                         int greenValue = (int)(amount[1] * (255 / (amount.Max() + 1)));
                         int blueValue = (int)(amount[2] * (255 / (amount.Max() + 1)));
@@ -282,8 +284,17 @@ namespace TheFinalBrokenChords
                         // Send bits to said arduino
                         port.Write(buffer, 0, 4);
 
+                        redValue = 0;
+                        greenValue = 0;
+                        blueValue = 0;
+
+                        buffer[0] = 0;
+                        buffer[1] = 0;
+                        buffer[2] = 0;
+                        buffer[3] = 0;
+
                         System.Threading.Thread.Sleep(40);
-                        
+
                     }
                 }
                 // TESTING CODE TO SEE THE ARRAYS RGB COLOURS
@@ -299,10 +310,27 @@ namespace TheFinalBrokenChords
         }
 
         // OH HEY ITS A NEW THREAD FOR THE DEBUG WINDOW
-        private void UIThread(object arg)
+        // HOLY PLEASE DO THIS
+        PictureBox picturebitmap = new PictureBox();
+        public void UIThread(object arg)
         {
+            //InitializeComponent();
+            /*//System.Windows.Forms.Application.Run(new Form1(captureInstance));
+            CameraImaging captureInstance = (CameraImaging)arg;
             using (Form UIForm = new Form())
+            {
+                UIForm.BackgroundImage = captureInstance.returnCurrentBitmap();
+                picturebitmap.SizeMode = PictureBoxSizeMode.AutoSize;
+                picturebitmap.Image = captureInstance.returnCurrentBitmap();
                 UIForm.ShowDialog();
+                //System.Windows.Forms.Application.Run(new Form(UIForm));
+                while (true)
+                {
+                    UIForm.BackgroundImage = captureInstance.returnCurrentBitmap();
+                    UIForm.Refresh();
+                }
+                
+            }*/
         }
     }
 }

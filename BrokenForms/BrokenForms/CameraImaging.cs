@@ -17,7 +17,7 @@ using Midi;
 
 // I could simplify most of the includes, But hey, Wat ya gonna do
 
-namespace TheFinalBrokenChords
+namespace BrokenForms
 {
 
     public class CameraImaging
@@ -216,11 +216,15 @@ namespace TheFinalBrokenChords
         /**
         Return the current Bitmap Variable of webcam One
         */
-        public Bitmap returnCurrentBitmapOne()
+        public bool returnCurrentBitmapOne(out Bitmap bitmap)
         {
             if (bitmapOne != null)
-                return bitmapOne;
-            return null;
+            {
+                bitmap = bitmapOne;
+                return true;
+            }
+            bitmap = null;
+            return false;
         }
 
         /**
@@ -255,7 +259,7 @@ namespace TheFinalBrokenChords
             //Bitmap tempBitmapOne = null;
             //tempBitmapOne = (Bitmap)eventArgs.Frame.Clone();
             bitmapOne = (Bitmap)eventArgs.Frame.Clone();
-
+            Console.WriteLine("I Has Frame");
         }
         private void videoTwo_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
