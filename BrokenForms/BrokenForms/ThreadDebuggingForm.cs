@@ -10,16 +10,18 @@ using System.Threading;
 
 namespace BrokenForms
 {
+
     class ThreadDebuggingForm
     {
-        static public void SystemThread()
+        
+        static public void SystemThread(object mainCamera)
         {
             try {
 
                 Bitmap bitmap;
                 // Start up the Camera Imaging funcions and wait for the bitmap to be null
                 // this indicates when the camera is sending data        
-                CameraImaging captureInstance = new CameraImaging();
+                CameraImaging captureInstance = (CameraImaging)mainCamera;
                 while (captureInstance.returnCurrentBitmapOne(out bitmap) == false) ;
 
                 // Initialize thread for form debugging
@@ -53,22 +55,37 @@ namespace BrokenForms
                 SerialPort port = new SerialPort("COM4", 9600);
                 port.Open();
 
+                //set the variable used to switch between cameras
+                
+
                 // Start up the Camera Imaging funcions and wait for the bitmap to be null
                 // this indicates when the camera is sending data
-                while (captureInstance.returnCurrentBitmapOne(out bitmap) == false) ;
+                //while (captureInstance.returnCurrentBitmapOne(out bitmap) == false) ;
                 Bitmap usingBitmap;
-
+                int cameraBeingPlayed = 0;
                 // Run indefenity until stopped manually by pressing the visual studios square button
                 // The Form is its seperate thread. So this code will still run if the thread closes
                 while (true)
                 {
                     // Capture a bitmap for initial debugging ****** REPLACING THIS INTO THE DEBUGGING WINDOOW
-                    if (captureInstance.returnCurrentBitmapOne(out usingBitmap))
+                    if (captureInstance.returnCameraInUse() == 0)
                     {
+                        if (captureInstance.returnCurrentBitmapOne(out usingBitmap))
+                        {
+                            
+                        }
+                        else {
+                            continue;
+                        }
+                    } else
+                    {
+                        if (captureInstance.returnCurrentBitmapTwo(out usingBitmap))
+                        {
 
-                    }
-                    else {
-                        continue;
+                        }
+                        else {
+                            continue;
+                        }
                     }
                     // Checks the rbg value of the bottom left pixle captured
                     Console.WriteLine("BOTTOM LEFT RBG VALUE");
@@ -83,12 +100,18 @@ namespace BrokenForms
                     Console.WriteLine("Width : " + Width);      // Usually 640 if not its broken
                     Console.WriteLine("");
 
+                    string[] coloursDetected = new string[640];
+                    for (int p = 0; p < 640; p++)
+                    {
+                        coloursDetected[p] = "";
+                    }
 
                     bool red = false;
                     bool blue = false;
                     bool green = false;
                     //bool black = false;
 
+                    
                     // FIGURE OUT: Polar co-ords for the loops when table is round 
                     // These two for loops will go from DOWN -> TOP then RIGHT -> LEFT
                     for (int i = Width - 1; i >= 0; i--)
@@ -102,14 +125,28 @@ namespace BrokenForms
                         amount.Add(0);
                         //Console.WriteLine("1");
                         // Every 10 pixles re-upload the current bitmap
+                        //Console.WriteLine(captureInstance.returnCameraInUse());
                         if (i % 4 == 0)
                         {
-                            if (captureInstance.returnCurrentBitmapOne(out usingBitmap))
+                            if (captureInstance.returnCameraInUse() == 0)
                             {
+                                if (captureInstance.returnCurrentBitmapOne(out usingBitmap))
+                                {
 
+                                }
+                                else {
+                                    continue;
+                                }
                             }
-                            else {
-                                continue;
+                            else
+                            {
+                                if (captureInstance.returnCurrentBitmapTwo(out usingBitmap))
+                                {
+
+                                }
+                                else {
+                                    continue;
+                                }
                             }
                         }
                        // Console.WriteLine("2");
@@ -119,16 +156,7 @@ namespace BrokenForms
                             for (int j = 0; j < Height; j++)
                             {
                                 // USING Color we can obtain the bitmaps pixle R,B,G values
-                                if ((usingBitmap.Width <= i) || (usingBitmap.Height <= j))
-                                {
-                                    throw new DivideByZeroException();
-                                }
-                               // Console.WriteLine("3");
                                 Color pixelcolour = usingBitmap.GetPixel(i, j);
-                                if (pixelcolour == null)
-                                {
-                                    Console.WriteLine("HALP");
-                                }
 
                                 /* CALCS
                                 Ok because the width is counting down we need to swap its ratio to counting up
@@ -140,8 +168,17 @@ namespace BrokenForms
                                 if (pixelcolour.R - pixelcolour.G > 40 && pixelcolour.R - pixelcolour.B > 40 && pixelcolour.G + pixelcolour.B < 20)
                                 {
                                     // To check if its one stroke
+                                    if (coloursDetected[j] == "")
+                                    {
+                                        coloursDetected[j] = "Red";
+                                    }
+
                                     if (red == false)
                                     {
+                                        if ((i - 1) != -1)
+                                        {
+                                            
+                                        }
                                         // Commented out code for debuging purposes
                                         /*int redTotal = pixelcolour.R + pixelcolour.G + pixelcolour.B;
                                         Console.WriteLine("Red: " + pixelcolour.R + " , " + pixelcolour.G + " , " + pixelcolour.B);
@@ -159,7 +196,7 @@ namespace BrokenForms
                                     // if its no longer red, then stop and repeat until there is another colour
                                     red = false;
                                     // stop the note from playing
-                                    outputDeviceGuitar.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value + 10), 80);
+                                   outputDeviceGuitar.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value + 10), 80);
                                 }
 
 
@@ -180,12 +217,16 @@ namespace BrokenForms
                                 else
                                 {
                                     green = false;
-                                    outputDeviceBass.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value + 10), 80);
+                                   outputDeviceBass.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value + 10), 80);
                                 }
 
                                 //Now calibrate if its blue
                                 if (pixelcolour.B - pixelcolour.R > 80 && pixelcolour.B - pixelcolour.G > 80)
                                 {
+                                    if (coloursDetected[j] == "")
+                                    {
+                                        coloursDetected[j] = "Blue";
+                                    }
                                     if (blue == false)
                                     {
                                         /*int blueTotal = pixelcolour.R + pixelcolour.G + pixelcolour.B;
@@ -199,7 +240,7 @@ namespace BrokenForms
                                 else
                                 {
                                     blue = false;
-                                    outputDevicePiano.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value + 10), 80);
+                                    //outputDevicePiano.SendNoteOff(Channel.Channel1, captureInstance.returnPitch(value + 10), 80);
                                 }
 
                                 // STRETCH GOAL MAKE BLACK A COLOUR, HOWEVER REALLY ANNOYING
@@ -277,9 +318,17 @@ namespace BrokenForms
 
                             // Some math used to determin what led should be lit up due to what width its at
                             // when table is built, hard code for 1:1 ratio
-                            double LedNumber = Math.Ceiling(((Width - i) - 1) / 2.68);
-                            int LedRoundNumber = (int)LedNumber;
 
+                            double LedNumber = Math.Ceiling(((Width - i) - 1) / 2.68);
+                            if (captureInstance.returnCameraInUse() == 0)
+                            {
+                                LedNumber = (LedNumber / 2);
+                            } else
+                            {
+                                LedNumber = (LedNumber / 2) + 119;
+                            }
+                            int LedRoundNumber = (int)LedNumber;
+                            //Console.WriteLine(LedRoundNumber);
                             // Create a byte buffer used to send data to the Arduino
                             byte[] buffer = new byte[4];
                             buffer[0] = Convert.ToByte(redValue);     // RED
@@ -289,7 +338,7 @@ namespace BrokenForms
 
                             // Send bits to said arduino
                             port.Write(buffer, 0, 4);
-                            Console.WriteLine(redValue + " _ " + greenValue + " _ " + blueValue + " --- " + i);
+                            //Console.WriteLine(redValue + " _ " + greenValue + " _ " + blueValue + " --- " + i);
 
                             redValue = 0;
                             greenValue = 0;
@@ -300,9 +349,13 @@ namespace BrokenForms
                             buffer[2] = 0;
                             buffer[3] = 0;
 
-                            //System.Threading.Thread.Sleep(40);
+                            System.Threading.Thread.Sleep(1);
                             System.GC.Collect();
+
+                            
+                            //Console.WriteLine(cameraBeingPlayed.ToString());
                         }
+                        
                     }
                     // TESTING CODE TO SEE THE ARRAYS RGB COLOURS
                     // This is testing to make sure that the array is created
@@ -314,12 +367,19 @@ namespace BrokenForms
                         }
                     }*/
                     //throw new DivideByZeroException();
+                    if (captureInstance.returnCameraInUse() == 0)
+                    {
+                        captureInstance.switchCameraUse();
+                    }
+                    else
+                    {
+                        captureInstance.switchCameraUse();
+                    }
                 }
               //  throw new DivideByZeroException();
             } catch (Exception ex)
              {
                 Console.WriteLine(ex.ToString());
-                Console.WriteLine("WHAt the FUXK!");
              }
             
         }

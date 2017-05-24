@@ -19,13 +19,15 @@ namespace BrokenForms
         static void Main()
         {
             try {
+                CameraImaging mainCameraObject = new CameraImaging();
+                bool isPaused = new bool();
 
                 Thread threadForUI = new Thread(ThreadDebuggingForm.SystemThread);
-                threadForUI.Start();
-
+                threadForUI.Start(mainCameraObject);
+                
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1());
+                Application.Run(new Form1(mainCameraObject, threadForUI));
 
             } catch (Exception ex)
             {

@@ -25,6 +25,9 @@ namespace BrokenForms
         // Initiate all needed variables
         public Bitmap bitmapOne;
         public Bitmap bitmapTwo;
+
+        public int cameraInUse;
+
         // Bitmap to obtain all the rbg values of the webcam
         public FilterInfoCollection VideoCapturingDevices;  // All the video capturing devices
         public VideoCaptureDevice FileVideoSourceOne;          // The device we will be using
@@ -207,6 +210,9 @@ namespace BrokenForms
             //Obtain a Frame GOTO video_NewFrame() FUNCTION
             FileVideoSourceTwo.NewFrame += new NewFrameEventHandler(videoTwo_NewFrame);
 
+            //Camera in use
+            cameraInUse = 0;
+
             //Due to the fact that the camera has a start up time, we have to wait until 
             //the frame has been captured then stop the camera. So first make sure the bitmap is null
             //Wait until the frame has been captured
@@ -221,20 +227,56 @@ namespace BrokenForms
             if (bitmapOne != null)
             {
                 bitmap = bitmapOne;
+                //Console.WriteLine("Here one");
                 return true;
             }
             bitmap = null;
             return false;
         }
 
+        public void switchCameraUse()
+        {
+            if (cameraInUse == 0)
+            {
+                cameraInUse = 1;
+            }
+            else
+            {
+                cameraInUse = 0;
+            }
+            //Console.WriteLine(cameraInUse.ToString());
+        }
+
+        public int returnCameraInUse()
+        {
+            return cameraInUse;
+        }
+
+        public bool returnCurrentBitmapOneCamera(out Bitmap bitmapC)
+        {
+            if (bitmapOne != null)
+            {
+                bitmapC = bitmapOne;
+                //Console.WriteLine("Here one");
+                return true;
+            }
+            bitmapC = null;
+            return false;
+        }
+
         /**
         Return the current Bitmap Variable of webcam Two
         */
-        public Bitmap returnCurrentBitmapTwo()
+        public bool returnCurrentBitmapTwo(out Bitmap bitmap)
         {
             if (bitmapTwo != null)
-                return bitmapTwo;
-            return null;
+            {
+                bitmap = bitmapTwo;
+                //Console.WriteLine("Here two");
+                return true;
+            }
+            bitmap = null;
+            return false;
         }
 
         /**
@@ -259,7 +301,6 @@ namespace BrokenForms
             //Bitmap tempBitmapOne = null;
             //tempBitmapOne = (Bitmap)eventArgs.Frame.Clone();
             bitmapOne = (Bitmap)eventArgs.Frame.Clone();
-            Console.WriteLine("I Has Frame");
         }
         private void videoTwo_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
