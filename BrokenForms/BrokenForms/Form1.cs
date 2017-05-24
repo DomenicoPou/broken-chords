@@ -16,19 +16,21 @@ namespace BrokenForms
         public bool isPaused;
         public CameraImaging mainCamera;
         Thread mainThread;
-
+        CameraImaging cameraInUse;
         public Form1(CameraImaging CameraObject, Thread trd)
         {
             mainThread = trd;
             mainCamera = CameraObject;
             isPaused = false;
+            cameraInUse = CameraObject;
+            mainThread.Start(cameraInUse);
             InitializeComponent();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             Bitmap bit_map;
-            if (mainCamera.returnCameraInUse() == 1)
+            if (isPaused)
             {
                 if (mainCamera.returnCurrentBitmapOne(out bit_map))
                 {
@@ -37,14 +39,12 @@ namespace BrokenForms
                 else {
                 }
                 this.pictureBox1.Image = bit_map;
-            } else
-            {
-                if (mainCamera.returnCurrentBitmapTwo(out bit_map))
-                {
+                //if (mainCamera.returnCurrentBitmapTwo(out bit_map))
+                //{
 
-                }
-                else {
-                }
+                //}
+                //else {
+                //}
                 this.pictureBox2.Image = bit_map;
             }
             System.GC.Collect();
@@ -89,6 +89,13 @@ namespace BrokenForms
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //mainThread.Abort();
+            System.Diagnostics.Process.Start(Application.ExecutablePath);
+            Environment.Exit(Environment.ExitCode);
         }
     }
 }

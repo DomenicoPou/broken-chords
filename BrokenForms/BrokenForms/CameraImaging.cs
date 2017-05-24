@@ -24,14 +24,14 @@ namespace BrokenForms
     {
         // Initiate all needed variables
         public Bitmap bitmapOne;
-        public Bitmap bitmapTwo;
+        //public Bitmap bitmapTwo;
 
         public int cameraInUse;
 
         // Bitmap to obtain all the rbg values of the webcam
         public FilterInfoCollection VideoCapturingDevices;  // All the video capturing devices
         public VideoCaptureDevice FileVideoSourceOne;          // The device we will be using
-        public VideoCaptureDevice FileVideoSourceTwo;
+        //public VideoCaptureDevice FileVideoSourceTwo;
         // This is a very anoying hard coded Pitch array of pitches
         public Pitch[] pitches = { /*Pitch.CNeg1,
             Pitch.CSharpNeg1,
@@ -190,7 +190,7 @@ namespace BrokenForms
                 return;
             }
             bitmapOne = null;
-            bitmapTwo = null;
+            //bitmapTwo = null;
 
             // Set the first webcam to the main capturing device
             FileVideoSourceOne = new VideoCaptureDevice(VideoCapturingDevices[0].MonikerString);
@@ -201,17 +201,17 @@ namespace BrokenForms
             //Obtain a Frame GOTO video_NewFrame() FUNCTION
             FileVideoSourceOne.NewFrame += new NewFrameEventHandler(videoOne_NewFrame);
 
-            // Set the first webcam to the main capturing device
-            FileVideoSourceTwo = new VideoCaptureDevice(VideoCapturingDevices[1].MonikerString);
+            //// Set the first webcam to the main capturing device
+            //FileVideoSourceTwo = new VideoCaptureDevice(VideoCapturingDevices[1].MonikerString);
 
-            //Start the webcam up
-            FileVideoSourceTwo.Start();
-            while (!FileVideoSourceTwo.IsRunning) ;
-            //Obtain a Frame GOTO video_NewFrame() FUNCTION
-            FileVideoSourceTwo.NewFrame += new NewFrameEventHandler(videoTwo_NewFrame);
+            ////Start the webcam up
+            //FileVideoSourceTwo.Start();
+            //while (!FileVideoSourceTwo.IsRunning) ;
+            ////Obtain a Frame GOTO video_NewFrame() FUNCTION
+            //FileVideoSourceTwo.NewFrame += new NewFrameEventHandler(videoTwo_NewFrame);
 
-            //Camera in use
-            cameraInUse = 0;
+            ////Camera in use
+            //cameraInUse = 0;
 
             //Due to the fact that the camera has a start up time, we have to wait until 
             //the frame has been captured then stop the camera. So first make sure the bitmap is null
@@ -234,23 +234,23 @@ namespace BrokenForms
             return false;
         }
 
-        public void switchCameraUse()
-        {
-            if (cameraInUse == 0)
-            {
-                cameraInUse = 1;
-            }
-            else
-            {
-                cameraInUse = 0;
-            }
-            //Console.WriteLine(cameraInUse.ToString());
-        }
+        //public void switchCameraUse()
+        //{
+        //    if (cameraInUse == 0)
+        //    {
+        //        cameraInUse = 1;
+        //    }
+        //    else
+        //    {
+        //        cameraInUse = 0;
+        //    }
+        //    //Console.WriteLine(cameraInUse.ToString());
+        //}
 
-        public int returnCameraInUse()
-        {
-            return cameraInUse;
-        }
+        //public int returnCameraInUse()
+        //{
+        //    return cameraInUse;
+        //}
 
         public bool returnCurrentBitmapOneCamera(out Bitmap bitmapC)
         {
@@ -267,17 +267,17 @@ namespace BrokenForms
         /**
         Return the current Bitmap Variable of webcam Two
         */
-        public bool returnCurrentBitmapTwo(out Bitmap bitmap)
-        {
-            if (bitmapTwo != null)
-            {
-                bitmap = bitmapTwo;
-                //Console.WriteLine("Here two");
-                return true;
-            }
-            bitmap = null;
-            return false;
-        }
+        //public bool returnCurrentBitmapTwo(out Bitmap bitmap)
+        //{
+        //    if (bitmapTwo != null)
+        //    {
+        //        bitmap = bitmapTwo;
+        //        //Console.WriteLine("Here two");
+        //        return true;
+        //    }
+        //    bitmap = null;
+        //    return false;
+        //}
 
         /**
         This function controls the frames, This loops infinitly until the camera stops
@@ -302,13 +302,13 @@ namespace BrokenForms
             //tempBitmapOne = (Bitmap)eventArgs.Frame.Clone();
             bitmapOne = (Bitmap)eventArgs.Frame.Clone();
         }
-        private void videoTwo_NewFrame(object sender, NewFrameEventArgs eventArgs)
+       /* private void videoTwo_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             //Bitmap tempBitmapTwo = null;
             //tempBitmapTwo = (Bitmap)eventArgs.Frame.Clone();
             bitmapTwo = (Bitmap)eventArgs.Frame.Clone();
 
-        }
+        }*/
 
         //This is what we use to return a pitch value with our height value
         public Pitch returnPitch(int val)

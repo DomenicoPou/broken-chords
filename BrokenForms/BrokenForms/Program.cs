@@ -23,7 +23,7 @@ namespace BrokenForms
                 bool isPaused = new bool();
 
                 Thread threadForUI = new Thread(ThreadDebuggingForm.SystemThread);
-                threadForUI.Start(mainCameraObject);
+                //threadForUI.Start(mainCameraObject);
                 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
