@@ -7,18 +7,25 @@ using System.Drawing;
 using Midi;
 using System.IO.Ports;
 using System.Threading;
-
+using System.Threading;
 namespace BrokenForms
 {
 
     class ThreadDebuggingForm
     {
+        static public bool isPaused;
+
+        //static public Point ()
+        //{
+        //    double x = radius * Math.Cos(theta);
+        //    double y = radius * Math.Sin(theta);
+        //    return new Point((int)x, (int)y);
+        //}
 
         static public void SystemThread(object mainCamera)
         {
             try
             {
-
                 Bitmap bitmap;
                 // Start up the Camera Imaging funcions and wait for the bitmap to be null
                 // this indicates when the camera is sending data        
@@ -78,6 +85,7 @@ namespace BrokenForms
                     else {
                         continue;
                     }
+                    //BrokenMath.returnPollar(usingBitmap);
                     //} else
                     //{
                     //    if (captureInstance.returnCurrentBitmapTwo(out usingBitmap))
@@ -157,6 +165,7 @@ namespace BrokenForms
                         {
                             for (int j = 0; j < Height; j++)
                             {
+                                while (isPaused) ;
                                 // USING Color we can obtain the bitmaps pixle R,B,G values
                                 Color pixelcolour = usingBitmap.GetPixel(i, j);
 
@@ -387,4 +396,5 @@ namespace BrokenForms
 
         }
     }
+    
 }

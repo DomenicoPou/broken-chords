@@ -24,13 +24,17 @@ namespace BrokenForms
             isPaused = false;
             cameraInUse = CameraObject;
             mainThread.Start(cameraInUse);
+
+            this.KeyPreview = true;
+            this.KeyPress +=
+                new KeyPressEventHandler(Form1_KeyPress);
             InitializeComponent();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             Bitmap bit_map;
-            if (isPaused)
+            if (ThreadDebuggingForm.isPaused)
             {
                 if (mainCamera.returnCurrentBitmapOne(out bit_map))
                 {
@@ -62,15 +66,14 @@ namespace BrokenForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (isPaused == false)
+            if (ThreadDebuggingForm.isPaused == false)
             {
-                isPaused = true;
-                mainThread.Suspend();
+                ThreadDebuggingForm.isPaused = true;
                 this.button1.BackColor = Color.Black;
-            } else
+            }
+            else
             {
-                isPaused = false;
-                mainThread.Resume();
+                ThreadDebuggingForm.isPaused = false;
                 this.button1.BackColor = Color.White;
             }
             //Console.WriteLine(isPaused.ToString());
@@ -96,6 +99,34 @@ namespace BrokenForms
             //mainThread.Abort();
             System.Diagnostics.Process.Start(Application.ExecutablePath);
             Environment.Exit(Environment.ExitCode);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 119) // w
+            {
+                Console.WriteLine("W");
+            }
+
+            if (e.KeyChar == 97) // a
+            {
+                Console.WriteLine("A");
+            }
+
+            if (e.KeyChar == 115) // s
+            {
+                Console.WriteLine("S");
+            }
+
+            if (e.KeyChar == 100) // w
+            {
+                Console.WriteLine("D");
+            }
         }
     }
 }
