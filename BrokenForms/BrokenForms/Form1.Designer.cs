@@ -49,6 +49,18 @@
             this.widthBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.degreeBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.blueAmountText = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.greenAmountText = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.redAmountText = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.radiusDelayBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBox2)).BeginInit();
@@ -58,10 +70,11 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Location = new System.Drawing.Point(12, 30);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(680, 420);
+            this.pictureBox1.Size = new System.Drawing.Size(640, 480);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -73,7 +86,6 @@
             this.pointBox.Size = new System.Drawing.Size(3, 3);
             this.pointBox.TabIndex = 1;
             this.pointBox.TabStop = false;
-            this.pointBox.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // timer1
             // 
@@ -182,7 +194,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(672, 137);
+            this.label5.Location = new System.Drawing.Point(866, 59);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 20;
@@ -190,7 +202,7 @@
             // 
             // heightBox
             // 
-            this.heightBox.Location = new System.Drawing.Point(730, 134);
+            this.heightBox.Location = new System.Drawing.Point(924, 56);
             this.heightBox.Name = "heightBox";
             this.heightBox.Size = new System.Drawing.Size(100, 20);
             this.heightBox.TabIndex = 19;
@@ -198,7 +210,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(672, 111);
+            this.label6.Location = new System.Drawing.Point(866, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 13);
             this.label6.TabIndex = 18;
@@ -206,7 +218,7 @@
             // 
             // widthBox
             // 
-            this.widthBox.Location = new System.Drawing.Point(730, 108);
+            this.widthBox.Location = new System.Drawing.Point(924, 30);
             this.widthBox.Name = "widthBox";
             this.widthBox.Size = new System.Drawing.Size(100, 20);
             this.widthBox.TabIndex = 17;
@@ -214,26 +226,135 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(672, 163);
+            this.label7.Location = new System.Drawing.Point(1053, 33);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 22;
             this.label7.Text = "Degree:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // degreeBox
             // 
-            this.degreeBox.Location = new System.Drawing.Point(730, 160);
+            this.degreeBox.Location = new System.Drawing.Point(1111, 30);
             this.degreeBox.Name = "degreeBox";
             this.degreeBox.Size = new System.Drawing.Size(100, 20);
             this.degreeBox.TabIndex = 21;
-            this.degreeBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(759, 14);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 13);
+            this.label8.TabIndex = 23;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(742, 14);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 13);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Read Variables";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(930, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 13);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Camera Variables";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1128, 14);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 13);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Live Variables";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(1053, 114);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(49, 13);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "Blue Am:";
+            // 
+            // blueAmountText
+            // 
+            this.blueAmountText.Location = new System.Drawing.Point(1111, 111);
+            this.blueAmountText.Name = "blueAmountText";
+            this.blueAmountText.Size = new System.Drawing.Size(100, 20);
+            this.blueAmountText.TabIndex = 31;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1044, 88);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Green Am:";
+            // 
+            // greenAmountText
+            // 
+            this.greenAmountText.Location = new System.Drawing.Point(1111, 85);
+            this.greenAmountText.Name = "greenAmountText";
+            this.greenAmountText.Size = new System.Drawing.Size(100, 20);
+            this.greenAmountText.TabIndex = 29;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1053, 62);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(48, 13);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "Red Am:";
+            // 
+            // redAmountText
+            // 
+            this.redAmountText.Location = new System.Drawing.Point(1111, 59);
+            this.redAmountText.Name = "redAmountText";
+            this.redAmountText.Size = new System.Drawing.Size(100, 20);
+            this.redAmountText.TabIndex = 27;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(656, 110);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(73, 13);
+            this.label15.TabIndex = 34;
+            this.label15.Text = "Radius Delay:";
+            // 
+            // radiusDelayBox
+            // 
+            this.radiusDelayBox.Location = new System.Drawing.Point(730, 107);
+            this.radiusDelayBox.Name = "radiusDelayBox";
+            this.radiusDelayBox.Size = new System.Drawing.Size(100, 20);
+            this.radiusDelayBox.TabIndex = 33;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 677);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.radiusDelayBox);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.blueAmountText);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.greenAmountText);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.redAmountText);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.degreeBox);
             this.Controls.Add(this.label5);
@@ -256,7 +377,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBox2)).EndInit();
@@ -288,6 +408,18 @@
         private System.Windows.Forms.TextBox widthBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox degreeBox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox blueAmountText;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox greenAmountText;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox redAmountText;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox radiusDelayBox;
     }
 }
 

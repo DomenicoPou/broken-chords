@@ -20,7 +20,7 @@ namespace BrokenForms
         {
             try {
                 CameraImaging mainCameraObject = new CameraImaging();
-                bool isPaused = new bool();
+                //bool isPaused = new bool();
 
                 Thread threadForUI = new Thread(ThreadDebuggingForm.SystemThread);
                 //threadForUI.Start(mainCameraObject);

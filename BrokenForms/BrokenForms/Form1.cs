@@ -61,12 +61,18 @@ namespace BrokenForms
             else{
                 pointBoxCurrent.Location = new Point(pictureBox1.Location.X + ThreadDebuggingForm.currentXPoint, pictureBox1.Location.Y + (pictureBox1.Height - ThreadDebuggingForm.currentYPoint));
                 //drawPoint();
+                redAmountText.Text = ThreadDebuggingForm.amount[0].ToString();
+                greenAmountText.Text = ThreadDebuggingForm.amount[1].ToString();
+                blueAmountText.Text = ThreadDebuggingForm.amount[2].ToString();
             }
             
             xTextBox.Text = ThreadDebuggingForm.xPoint.ToString();
             yTextBox.Text = ThreadDebuggingForm.yPoint.ToString();
             rTextBox.Text = ThreadDebuggingForm.radius.ToString();
             degreeBox.Text = ThreadDebuggingForm.currentDegree.ToString();
+
+            
+
             System.GC.Collect();
         }
 
@@ -203,27 +209,17 @@ namespace BrokenForms
                 Console.WriteLine("Q");
                 ThreadDebuggingForm.radius -= 2;
             }
+            if (e.KeyChar == 17)
+            {
 
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
+                ThreadDebuggingForm.radiusStartPoint++;
+                Console.WriteLine("^Q");
+            }
+            if (e.KeyChar == 5)
+            {
+                ThreadDebuggingForm.radiusStartPoint--;
+                Console.WriteLine("^E");
+            }
         }
     }
 }

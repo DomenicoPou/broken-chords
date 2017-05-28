@@ -50,71 +50,98 @@ namespace BrokenForms
             Pitch.D0,
             Pitch.DSharp0,
             */Pitch.E0,
-            Pitch.F0,
+            //Pitch.F0,
             //Pitch.FSharp0,
-            Pitch.G0,
+            //Pitch.G0,
+            //
             //Pitch.GSharp0,
-            Pitch.A0,
+            //Pitch.A0,
+            //
             //Pitch.ASharp0,
-            Pitch.B0,
+            //Pitch.B0,
             Pitch.C1,
-            //Pitch.CSharp1,
+            //
+            Pitch.CSharp1,
             Pitch.D1,
-            //Pitch.DSharp1,
+            //
+            Pitch.DSharp1,
             Pitch.E1,
             Pitch.F1,
-            //Pitch.FSharp1,
+            //
+            Pitch.FSharp1,
             Pitch.G1,
-            //Pitch.GSharp1,
+            //
+            Pitch.GSharp1,
             Pitch.A1,
-            //Pitch.ASharp1,
+            //
+            Pitch.ASharp1,
             Pitch.B1,
             Pitch.C2,
-            //Pitch.CSharp2,
+            //
+            Pitch.CSharp2,
             Pitch.D2,
-            //Pitch.DSharp2,
+            //
+            Pitch.DSharp2,
             Pitch.E2,
             Pitch.F2,
-            //Pitch.FSharp2,
+            //
+            Pitch.FSharp2,
             Pitch.G2,
-            //Pitch.GSharp2,
+            //
+            Pitch.GSharp2,
             Pitch.A2,
-            //Pitch.ASharp2,
+            //
+            Pitch.ASharp2,
             Pitch.B2,
             Pitch.C3,
-            //Pitch.CSharp3,
+            //
+            Pitch.CSharp3,
             Pitch.D3,
-            //Pitch.DSharp3,
+            //
+            Pitch.DSharp3,
             Pitch.E3,
             Pitch.F3,
-            //Pitch.FSharp3,
+            //
+            Pitch.FSharp3,
             Pitch.G3,
-            //Pitch.GSharp3,
+            //
+            Pitch.GSharp3,
             Pitch.A3,
-            //Pitch.ASharp3,
+            //
+            Pitch.ASharp3,
             Pitch.B3,
             Pitch.C4,
-            //Pitch.CSharp4,
+            //
+            Pitch.CSharp4,
             Pitch.D4,
-           // Pitch.DSharp4,
+            //
+            Pitch.DSharp4,
             Pitch.F4,
-            //Pitch.FSharp4,
+            //
+            Pitch.FSharp4,
             Pitch.G4,
-            //Pitch.GSharp4,
+            //
+            Pitch.GSharp4,
             Pitch.A4,
-           // Pitch.ASharp4,
+            //
+            Pitch.ASharp4,
             Pitch.B4,
             Pitch.C5,
-            //Pitch.CSharp5,
+            //
+            Pitch.CSharp5,
             Pitch.D5,
-            //Pitch.DSharp5,
+            //
+            Pitch.DSharp5,
             Pitch.E5,
             Pitch.F5,
-            //Pitch.FSharp5,
+            //
+            Pitch.FSharp5,
             Pitch.G5,
-            //Pitch.GSharp5,
+            //
+            Pitch.GSharp5,
             Pitch.A5,
-            //Pitch.ASharp5,
+            //
+            Pitch.ASharp5,
             Pitch.B5,
             Pitch.C6,
             //Pitch.CSharp6,
