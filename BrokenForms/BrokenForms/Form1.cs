@@ -47,7 +47,9 @@ namespace BrokenForms
 
                 pointBox.Location = new Point(pictureBox1.Location.X + ThreadDebuggingForm.xPoint, pictureBox1.Location.Y + (pictureBox1.Height - ThreadDebuggingForm.yPoint));
                 pointBox.Size = new Size(ThreadDebuggingForm.radius, 1);
-                
+                radiusDelayBox.Text = ThreadDebuggingForm.radiusStartPoint.ToString();
+                pictureBoxDelay.Location = new Point(pictureBox1.Location.X + ThreadDebuggingForm.xPoint, pictureBox1.Location.Y + (pictureBox1.Height - ThreadDebuggingForm.yPoint + 1  ));
+                pictureBoxDelay.Size = new Size(ThreadDebuggingForm.radiusStartPoint, 1);
                 pointBox2.Location = new Point(pictureBox1.Location.X + ThreadDebuggingForm.xPoint, pictureBox1.Location.Y + (pictureBox1.Height - ThreadDebuggingForm.yPoint));
                 this.pictureBox1.Image = bit_map;
                 if (bit_map != null)
@@ -59,7 +61,7 @@ namespace BrokenForms
                 //this.pictureBox1.BackColor = Color.Transparent;
             }
             else{
-                pointBoxCurrent.Location = new Point(pictureBox1.Location.X + ThreadDebuggingForm.currentXPoint, pictureBox1.Location.Y + (pictureBox1.Height - ThreadDebuggingForm.currentYPoint));
+                pointBoxCurrent.Location = new Point(pictureBox1.Location.X + ThreadDebuggingForm.currentXPoint, pictureBox1.Location.Y + ThreadDebuggingForm.currentYPoint);
                 //drawPoint();
                 redAmountText.Text = ThreadDebuggingForm.amount[0].ToString();
                 greenAmountText.Text = ThreadDebuggingForm.amount[1].ToString();
@@ -212,12 +214,12 @@ namespace BrokenForms
             if (e.KeyChar == 17)
             {
 
-                ThreadDebuggingForm.radiusStartPoint++;
+                ThreadDebuggingForm.radiusStartPoint--;
                 Console.WriteLine("^Q");
             }
             if (e.KeyChar == 5)
             {
-                ThreadDebuggingForm.radiusStartPoint--;
+                ThreadDebuggingForm.radiusStartPoint++;
                 Console.WriteLine("^E");
             }
         }

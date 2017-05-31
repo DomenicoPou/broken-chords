@@ -13,9 +13,9 @@ namespace BrokenForms
     class ThreadDebuggingForm
     {
         static public bool isPaused;
-        static public int radius = 227;
-        static public int xPoint = 361;
-        static public int yPoint = 238;
+        static public int radius = 220;
+        static public int xPoint = 332;
+        static public int yPoint = 237;
 
         static public int currentXPoint = 0;
         static public int currentYPoint = 0;
@@ -23,7 +23,7 @@ namespace BrokenForms
 
         static public List<int> amount = new List<int>();
         
-        static public int radiusStartPoint = 0;
+        static public int radiusStartPoint = 10;
 
         static public Point findPoint(int radius, int givenDegree)
         {
@@ -195,12 +195,12 @@ namespace BrokenForms
                         Then deviding it based on how many pitch values there are which gives the following
                         value.
                         */
-                        int value = (int)Math.Ceiling((r) / 23.95);
+                        int value = (int)Math.Ceiling((double)((radius - r) / (radius/20)));
                         // Now check if the colour at this pixle is red
                         //if (pixelcolour.R - pixelcolour.G > 40 && pixelcolour.R - pixelcolour.B > 40 && pixelcolour.G + pixelcolour.B < 20)
                         //{
                         //Console.WriteLine("Colour: " + pixelcolour.R + " , " + pixelcolour.G + " , " + pixelcolour.B);
-                        if (pixelcolour.R > 220 && pixelcolour.B < 150 && pixelcolour.G < 150)
+                        if (pixelcolour.R > 180 && pixelcolour.G < 60 && pixelcolour.B < 60)
                         {
                             // To check if its one stroke  
 
@@ -230,7 +230,7 @@ namespace BrokenForms
 
 
                         //Now calibrate if its Green
-                        if (pixelcolour.G > pixelcolour.B && pixelcolour.R < 50)
+                        if (/*pixelcolour.G > pixelcolour.B &&*/  pixelcolour.R < 100 /*&& pixelcolour.G < 200 */ && pixelcolour.G > 140)
                         {
                             if (green == false)
                             {
@@ -250,7 +250,7 @@ namespace BrokenForms
                         }
 
                         //Now calibrate if its blue
-                        if (pixelcolour.G < pixelcolour.B && pixelcolour.R < 70)
+                        if (pixelcolour.R < 50 && pixelcolour.B > 100 && pixelcolour.G < 100)//(pixelcolour.G < pixelcolour.B && pixelcolour.R < 120 && pixelcolour.B < 200 && pixelcolour.B > 100)
                         {
                             if (blue == false)
                             {
@@ -371,12 +371,17 @@ namespace BrokenForms
                     greenValue = 0;
                     blueValue = 0;
 
+                    amount[0] = 0;
+                    amount[1] = 0;
+                    amount[2] = 0;
+                    amount[3] = 0;
+
                     buffer[0] = 0;
                     buffer[1] = 0;
                     buffer[2] = 0;
                     buffer[3] = 0;
 
-                    System.Threading.Thread.Sleep(10);
+                    System.Threading.Thread.Sleep(20);
                     System.GC.Collect();
 
 

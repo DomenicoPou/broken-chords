@@ -61,10 +61,12 @@
             this.redAmountText = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.radiusDelayBox = new System.Windows.Forms.TextBox();
+            this.pictureBoxDelay = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBoxCurrent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDelay)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -338,11 +340,21 @@
             this.radiusDelayBox.Size = new System.Drawing.Size(100, 20);
             this.radiusDelayBox.TabIndex = 33;
             // 
+            // pictureBoxDelay
+            // 
+            this.pictureBoxDelay.BackColor = System.Drawing.Color.Yellow;
+            this.pictureBoxDelay.Location = new System.Drawing.Point(696, 353);
+            this.pictureBoxDelay.Name = "pictureBoxDelay";
+            this.pictureBoxDelay.Size = new System.Drawing.Size(3, 3);
+            this.pictureBoxDelay.TabIndex = 35;
+            this.pictureBoxDelay.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 677);
+            this.Controls.Add(this.pictureBoxDelay);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.radiusDelayBox);
             this.Controls.Add(this.label12);
@@ -381,6 +393,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pointBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBoxCurrent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDelay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,6 +433,7 @@
         private System.Windows.Forms.TextBox redAmountText;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox radiusDelayBox;
+        private System.Windows.Forms.PictureBox pictureBoxDelay;
     }
 }
 
