@@ -213,8 +213,8 @@ namespace BrokenForms
             catch
             {
                 // If not print NO WEBCAMS :0
-                Console.WriteLine("NO WEBCAMS :0");
-                return;
+                System.Windows.Forms.MessageBox.Show("NO WEBCAMS ATTATCHED TO DEVICE :o");
+                Environment.Exit(Environment.ExitCode);
             }
             bitmapOne = null;
             //bitmapTwo = null;

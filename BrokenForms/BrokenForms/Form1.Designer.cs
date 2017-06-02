@@ -62,11 +62,13 @@
             this.label15 = new System.Windows.Forms.Label();
             this.radiusDelayBox = new System.Windows.Forms.TextBox();
             this.pictureBoxDelay = new System.Windows.Forms.PictureBox();
+            this.pitchPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBoxCurrent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDelay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pitchPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -349,11 +351,23 @@
             this.pictureBoxDelay.TabIndex = 35;
             this.pictureBoxDelay.TabStop = false;
             // 
+            // pitchPictureBox
+            // 
+            this.pitchPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.pitchPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pitchPictureBox.Location = new System.Drawing.Point(675, 134);
+            this.pitchPictureBox.Margin = new System.Windows.Forms.Padding(0);
+            this.pitchPictureBox.Name = "pitchPictureBox";
+            this.pitchPictureBox.Size = new System.Drawing.Size(640, 376);
+            this.pitchPictureBox.TabIndex = 36;
+            this.pitchPictureBox.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 677);
+            this.Controls.Add(this.pitchPictureBox);
             this.Controls.Add(this.pictureBoxDelay);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.radiusDelayBox);
@@ -394,6 +408,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pointBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointBoxCurrent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDelay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pitchPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,6 +449,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox radiusDelayBox;
         private System.Windows.Forms.PictureBox pictureBoxDelay;
+        private System.Windows.Forms.PictureBox pitchPictureBox;
     }
 }
 

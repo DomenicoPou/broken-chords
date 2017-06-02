@@ -67,7 +67,8 @@ namespace BrokenForms
                 greenAmountText.Text = ThreadDebuggingForm.amount[1].ToString();
                 blueAmountText.Text = ThreadDebuggingForm.amount[2].ToString();
             }
-            
+            pitchPictureBox.Height = ThreadDebuggingForm.radius - ThreadDebuggingForm.radiusStartPoint;
+            pitchPictureBox.Height = 360;
             xTextBox.Text = ThreadDebuggingForm.xPoint.ToString();
             yTextBox.Text = ThreadDebuggingForm.yPoint.ToString();
             rTextBox.Text = ThreadDebuggingForm.radius.ToString();
