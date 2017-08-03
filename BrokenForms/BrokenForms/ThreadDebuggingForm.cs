@@ -200,7 +200,7 @@ namespace BrokenForms
                         //if (pixelcolour.R - pixelcolour.G > 40 && pixelcolour.R - pixelcolour.B > 40 && pixelcolour.G + pixelcolour.B < 20)
                         //{
                         //Console.WriteLine("Colour: " + pixelcolour.R + " , " + pixelcolour.G + " , " + pixelcolour.B);
-                        if ((pixelcolour.R > pixelcolour.G) && (pixelcolour.R > pixelcolour.B) && ((pixelcolour.G < 230 && pixelcolour.B < 230) /*|| (pixelcolour.G > 120 && pixelcolour.B > 120)*/))
+                        if ((pixelcolour.R > pixelcolour.G) && (pixelcolour.R > pixelcolour.B) && ((pixelcolour.G < 80 && pixelcolour.B < 80) /*|| (pixelcolour.G > 120 && pixelcolour.B > 120)*/))
                         {
                             // To check if its one stroke  
 
@@ -230,7 +230,7 @@ namespace BrokenForms
 
 
                         //Now calibrate if its Green
-                        if (pixelcolour.G > pixelcolour.B &&  pixelcolour.R < 200  && pixelcolour.G > 200 && pixelcolour.B > 200)
+                        if (pixelcolour.G > pixelcolour.B && pixelcolour.R < 80  &&  (pixelcolour.G - pixelcolour.B < 20) && (pixelcolour.G - pixelcolour.B > -20))
                             //((pixelcolour.G - pixelcolour.B) < 20 && pixelcolour.R < 100)
                         {
                             if (green == false)
@@ -251,7 +251,7 @@ namespace BrokenForms
                         }
 
                         //Now calibrate if its blue
-                        if /*(pixelcolour.R < 50 && pixelcolour.B > 100 && pixelcolour.G < 100)*/(pixelcolour.G < pixelcolour.B && pixelcolour.R < 200 && pixelcolour.G > 200 && pixelcolour.B > 200)
+                        if /*(pixelcolour.R < 50 && pixelcolour.B > 100 && pixelcolour.G < 100)*/(pixelcolour.G < pixelcolour.B && pixelcolour.R < 10 && pixelcolour.G < 70 && pixelcolour.B - pixelcolour.G > 20)
                         {
                             if (blue == false)
                             {
@@ -382,7 +382,7 @@ namespace BrokenForms
                     buffer[2] = 0;
                     buffer[3] = 0;
 
-                    System.Threading.Thread.Sleep(20);
+                    System.Threading.Thread.Sleep(40);
                     System.GC.Collect();
 
 
